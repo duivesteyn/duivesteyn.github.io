@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+</script>
+</head>
+
+
 <body>
 <h1>Generative Art Series</h1>
 <h2>Blinky Palermo - Straight (1965), implemented in javascript (2020)</h2>
 <a href="https://github.com/deIndustries/GenerativeArtSeries">Link</a>
+
+<p id="demo">A Paragraph.</p>
+
 <p>
 <div>insert art</div>
-<div>insert options and generation button here</div>
+<div>insert options here</div>
+<button type="button" onclick="myFunction()">Try it</button>
 </p>
 </body>
 </html>
