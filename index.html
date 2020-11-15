@@ -1,103 +1,89 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-<script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "Paragraph changed.";
-}
-function straight() {
-
-//COLOUR - Each colour is denoted in hex triplet: #xxxxxx [sRGB]
-//-------------
-var straightBlue    = "1244b3"; //blue
-var straightYellow  = "ffd505"; //yellow
-var straightRed     = "b82c09"; //red
-var straightColours = [straightBlue, straightYellow, straightRed];
-
-//IMAGE RENDERING
-//-------------
-//Implementation Notes, this is designed with a white background, vertical lines placed, then filled in with the smaller squares
-
-//Image Dimensions & Artwork Specific Ratios
-var xDimension  = 4096;                                         //x pixels. ydimension controlled by number of rows (see below)
-var columns     = 26;                                           //main coloured strips (default 13)
-var rows        = 34;                                           //main coloured horizontal strips, consisting of little coloured sqares! (default 17)
-var yratio      = rows/columns;                                 //x:y ratio, >1 makes y>x (portrait)
-var yDimension  = math.round(xDimension*yratio) ;               //Automatic  height ref correct ratio #also needs to be int, not float
-var squareDimension = math.ceil(xDimension/(columns*2)) ;       // 2048/13/2 =78.76px
-
-//Artwork Colours
-var colourArrayLines = straightColours;
-
-//TODO: CONVERT FROM PYTHON FROM HERE DOWN
-// helper page: https://stackoverflow.com/questions/49807779/drawing-square-using-canvas-javascript
-
-
-/*
-//Generate
-//Create Canvas
-im = Image.new('RGB', (xDimension,yDimension), "ffffff")
-dr = ImageDraw.Draw(im)
-
-
-//Create Lines
-print ("Creating Palermo Straight Artwork with Rows " + str(rows) + " and Columns: " + str(columns))
-xSpacer = squareDimension
-ySpacer = squareDimension
-xOrigin = 0
-
-print ("Drawing Columns")
-for c in range(0, columns):
-    if (c != 0): //no spacer on first column
-        xOrigin = xOrigin + 2*xSpacer //add space between consecutive lines
-    yOrigin = 0
-    colourToDraw = colourArrayLines[c % 3] //select the right colour
-    dr.rectangle(( (xOrigin,yOrigin),(xOrigin+squareDimension,yDimension) ), fill=colourToDraw)
-    print ("Origin x,y: (" + str(xOrigin) + "," + str(yOrigin) + ") Destination x,y: (" + str(xOrigin+squareDimension) + "," + str(yDimension) + ") squareDimension: " + str(squareDimension) + ", colour: " + colourToDraw)
-
-//Create Squares
-print ("Drawing Squares")
-xOrigin = 0 //reset x-cord to start
-yOrigin = 0
-for r in range(0, rows):
-    for c in range(0, columns):
-        xOrigin = squareDimension*(2*c)+xSpacer;
-        yOrigin = squareDimension*(2*r);
-        colourToDraw = colourArrayLines[(c+1+r%3)% 3] //select the right colour
-        dr.rectangle(( (xOrigin,yOrigin),(xOrigin+squareDimension,yOrigin+squareDimension) ), fill=colourToDraw)
-        print ("Origin x,y: (" + str(xOrigin) + "," + str(yOrigin) + ") Destination x,y: (" + str(xOrigin+squareDimension) + "," + str(yOrigin+squareDimension) + ") squareDimension: " + str(squareDimension) + ", colour: " + colourToDraw)
-
-
-} *//
-}
-function drawSquare(canvas, context, color){
-    var x= Math.floor(Math.random()*canvas.width);
-    var y= Math.floor(Math.random()*canvas.height);    
-    context.fillStyle = color;
-    context.fillRect (x,y, canvas.width, canvas.height)
- }
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/starter-template/">
+    <!-- <script src="js/generativeArtSeriesPalermoStraight.js"></script>  -->
+    <script src="js/myScript.js"></script>    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
  
- let canvas=document.getElementById('canvas');
- drawSquare(canvas,canvas.getContext('2d'),'pink');
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+    
+
+
+
+ </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">GenerativeArtSeries</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main role="main" class="container">
+
+  <div class="starter-template">
+    <h1>Generative Art Series</h1>
+    
+    <h2>Blinky Palermo - Straight (1965), implemented in javascript (2020)</h2>
+    
+    <p class="lead">Use this document as a way to quickly start any new project.<br>
+    <a href="https://github.com/deIndustries/GenerativeArtSeries">Link to original series using python</a>
+    </p>
+    
+    <canvas width=600 height=785 id="canvas" ></canvas></div>
+    
+    <Script>blinkyStraight()</script>
+    
+    <div>insert colour/size options here</div>
+    <button type="button" onclick="blinkyStraight()">Generate</button>
+    <button type="button" onclick="myFunction()">Try it</button>
+    <div>
+  </div>
  
- 
-</script>
-</head>
-
-
-<body>
-<h1>Generative Art Series</h1>
-<h2>Blinky Palermo - Straight (1965), implemented in javascript (2020)</h2>
-<a href="https://github.com/deIndustries/GenerativeArtSeries">Link</a>
-
-<p id="demo">A Paragraph.</p>
-
-
-<p>
-<div><canvas width=300 height=300 id="canvas" ></canvas></div>
-<div>insert options here</div>
-<button type="button" onclick="myFunction()">Try it</button>
-</p>
-</body>
+</main><!-- /.container -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script></body>
 </html>
