@@ -1,73 +1,97 @@
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
 
-function straight() {
+function canvasDownload() {
+    //var canvas = document.getElementById("canvas");
+    //var img    = canvas.toDataURL("image/png");
+    //document.write('<img src="'+img+'"/>');
+	
+	var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); 
+	window.location.href=image; // it will save locally
+}
+
+
+function blinkyStraight(colour1, colour2, colour3) {
+    var theInput = document.getElementById("color1").value;
+    //var theColor = theInput.value;
+
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var width = canvas.width;
+var height = canvas.height;
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 //COLOUR - Each colour is denoted in hex triplet: #xxxxxx [sRGB]
 //-------------
-var straightBlue    = "1244b3"; //blue
-var straightYellow  = "ffd505"; //yellow
-var straightRed     = "b82c09"; //red
-var straightColours = [straightBlue, straightYellow, straightRed];
+//var straightBlue    = "#1244b3"; //blue
+//var straightYellow  = "#ffd505"; //yellow
+//var straightRed     = "#b82c09"; //red
+//var straightColours = [straightBlue, straightYellow, straightRed];
+var straightColours = [colour1,colour2,colour3]
+
 
 //IMAGE RENDERING
 //-------------
 //Implementation Notes, this is designed with a white background, vertical lines placed, then filled in with the smaller squares
 
 //Image Dimensions & Artwork Specific Ratios
-var xDimension  = 4096;                                         //x pixels. ydimension controlled by number of rows (see below)
 var columns     = 26;                                           //main coloured strips (default 13)
-var rows        = 34;                                           //main coloured horizontal strips, consisting of little coloured sqares! (default 17)
-var yratio      = rows/columns;                                 //x:y ratio, >1 makes y>x (portrait)
-var yDimension  = math.round(xDimension*yratio) ;               //Automatic  height ref correct ratio #also needs to be int, not float
-var squareDimension = math.ceil(xDimension/(columns*2)) ;       // 2048/13/2 =78.76px
+var yratio      = 1.3;                                          //x:y ratio, >1 makes y>x (portrait)
+var rows        = columns*yratio
+console.log("Creating Palermo Straight Artwork with Rows" + " CCC" + theInput);
+var squareDimension = Math.round(width/columns) //math.ceil(xDimension/(columns*2)) 		// 2048/13/2 =78.76px
 
-//Artwork Colours
-var colourArrayLines = straightColours;
+//Demo Lines
+//ctx.fillStyle = straightColours[0];
+//ctx.fillRect(0,0,150,75);
 
-//TODO: CONVERT FROM PYTHON FROM HERE DOWN
-// helper page: https://stackoverflow.com/questions/49807779/drawing-square-using-canvas-javascript
+var xSpacer = squareDimension;
+var ySpacer = squareDimension;
+var xOrigin = 0;
+var yOrigin = 0;
+var colourToDraw;
 
+//Columns
+console.log("Drawing Columns");
+for (c = 0; c < columns/2; c++) {
+  xOrigin = c*squareDimension*2;
+  colourToDraw = straightColours[c % 3]  						//select the right colour
+  //console.log(c + " " + c % 3 + " " + colourToDraw);
+  ctx.fillStyle = colourToDraw;
+  ctx.fillRect(xOrigin,yOrigin,squareDimension,height);
+}
 
-/*
-//Generate
-//Create Canvas
-im = Image.new('RGB', (xDimension,yDimension), "ffffff")
-dr = ImageDraw.Draw(im)
-
-
-//Create Lines
-print ("Creating Palermo Straight Artwork with Rows " + str(rows) + " and Columns: " + str(columns))
-xSpacer = squareDimension
-ySpacer = squareDimension
-xOrigin = 0
-
-print ("Drawing Columns")
-for c in range(0, columns):
-    if (c != 0): //no spacer on first column
-        xOrigin = xOrigin + 2*xSpacer //add space between consecutive lines
-    yOrigin = 0
-    colourToDraw = colourArrayLines[c % 3] //select the right colour
-    dr.rectangle(( (xOrigin,yOrigin),(xOrigin+squareDimension,yDimension) ), fill=colourToDraw)
-    print ("Origin x,y: (" + str(xOrigin) + "," + str(yOrigin) + ") Destination x,y: (" + str(xOrigin+squareDimension) + "," + str(yDimension) + ") squareDimension: " + str(squareDimension) + ", colour: " + colourToDraw)
+//Squares between Columns
 
 //Create Squares
-print ("Drawing Squares")
-xOrigin = 0 //reset x-cord to start
-yOrigin = 0
-for r in range(0, rows):
-    for c in range(0, columns):
-        xOrigin = squareDimension*(2*c)+xSpacer;
-        yOrigin = squareDimension*(2*r);
-        colourToDraw = colourArrayLines[(c+1+r%3)% 3] //select the right colour
-        dr.rectangle(( (xOrigin,yOrigin),(xOrigin+squareDimension,yOrigin+squareDimension) ), fill=colourToDraw)
-        print ("Origin x,y: (" + str(xOrigin) + "," + str(yOrigin) + ") Destination x,y: (" + str(xOrigin+squareDimension) + "," + str(yOrigin+squareDimension) + ") squareDimension: " + str(squareDimension) + ", colour: " + colourToDraw)
+console.log("Drawing Squares");
+xOrigin = 0; 													//reset x-cord to start
+yOrigin = 0;
 
-
-} *//
+for (r = 0; r < rows/2; r++) {
+	for (c = 0; c < columns; c++) {
+  	xOrigin = squareDimension*(2*c)+xSpacer;
+	yOrigin = squareDimension*(2*r);
+    colourToDraw = straightColours[(c+1+r%3)% 3]; 						//select the right colour
+    //console.log(r + " " + c);
+    ctx.fillStyle = colourToDraw;
+    ctx.fillRect(xOrigin,yOrigin,squareDimension,squareDimension);
+    }
 }
-function drawSquare(canvas, context, color){
-    var x= Math.floor(Math.random()*canvas.width);
-    var y= Math.floor(Math.random()*canvas.height);    
-    context.fillStyle = color;
-    context.fillRect (x,y, canvas.width, canvas.height)
- }
- 
+
+
+// for r in range(0, rows):
+//     for c in range(0, columns):
+//         xOrigin = squareDimension*(2*c)+xSpacer;
+//         yOrigin = squareDimension*(2*r);
+//         colourToDraw = straightColours[(c+1+r%3)% 3] #select the right colour
+//         dr.rectangle(( (xOrigin,yOrigin),(xOrigin+squareDimension,yOrigin+squareDimension) ), fill=colourToDraw)
+//         print ("Origin x,y: (" + str(xOrigin) + "," + str(yOrigin) + ") Destination x,y: (" + str(xOrigin+squareDimension) + "," + str(yOrigin+squareDimension) + ") squareDimension: " + str(squareDimension) + ", colour: " + colourToDraw)
+
+    
+
+    
+}
