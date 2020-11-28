@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/starter-template/">
+    <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/generativeArtSeriesPalermoStraight.js"></script>    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="css/starter-template.css" rel="stylesheet">    <!-- Custom styles for this template -->
+    <title>Blinky Palermo - Straight (1965) - Implemented in Javascript</title>
+<script>
+$(document).ready(function() {
+   blinkyStraight($("#color1").val(),$("#color2").val(),$("#color3").val());   
+});
+
+$(document).click(function (event) {
+   blinkyStraight($("#color1").val(),$("#color2").val(),$("#color3").val());   
+});
+
+</script>
 
  </head>
   <body>
@@ -22,51 +34,54 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" target="_blank href="https://www.pinakothek.de/kunst/blinky-palermo/straight">The Original</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" target="_blank href="https://github.com/duivesteyn">Github</a>
-      </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Generative Art Series (in Python)</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/BlinkyPalermo-Straight">Blinky Palermo - Straight</a>
+          <a class="dropdown-item"  target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/BlinkyPalermo-4Forms">Blinky Palermo - 4Forms</a>
+          <a class="dropdown-item"  target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/BlinkyPalermo-Flipper">Blinky Palermo - Flipper</a>
+          <a class="dropdown-item"  target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/BlinkyPalermo-Triptychon">Blinky Palermo - Triptychon</a>
+          <a class="dropdown-item"  target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/EllsworthKelly-ColoursForALargeWall">Ellsworth Kelly - Colours For A Large Wall</a>
+          <a class="dropdown-item"  target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/EllsworthKelly-Gaza">Ellsworth Kelly - Gaza</a>
+          <a class="dropdown-item"  target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/EllsworthKelly-SpectrumI">Ellsworth Kelly - Spectrum I</a>
+          <a class="dropdown-item"  target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/deIndustries-GenerativeArtSeries-EllsworthKelly-ChathamSeries">Ellsworth Kelly- Chatham Series</a>
+          <a class="dropdown-item"  target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/MaxBill-Munich72">Max Bill - Munich 72</a> 
+          <a class="dropdown-item"  target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/MaxBill-SenseTitol">Max Bill - Sense Titol</a> 
+          <a class="dropdown-item"  target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/MaxBill-Untitled-9x5KonkretPortfolio">Max Bill - Untitled 9x5KonkretPortfolio</a> 
         </div>
       </li>
-    </ul>
+      <li class="nav-item">
+        <a class="nav-link" target="_blank" href="https://github.com/duivesteyn">Github</a>
+      </li> 
+ </ul>
   </div>
 </nav>
 
 <main role="main" class="container">
-
+  <div class="starter-template">
+  <h2>Generative Art Series</h2>
+  <p class="lead">The <a href="https://github.com/deIndustries/GenerativeArtSeries">Generative Art Series</a> is a collection of existing artworks which have been recreated purely from code. The study has been focused on artworks by Blinky Palermo, Ellsworth Kelly and Max Bill.
+  </div>
+        
   <div class="starter-template">
     <h1>Blinky Palermo - Straight (1965)</h1>
-    
-    <h2>Generative Art Series</h2>
-    
-    <p class="lead">About idea<br>
-    <a href="https://github.com/deIndustries/GenerativeArtSeries">Link to original series using python</a>
+    <a target="_blank" href="https://www.pinakothek.de/kunst/blinky-palermo/straight">The Original</a> in Munich Pinakothek.<br>
+    <a href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/BlinkyPalermo-Straight">Python Implementation</a>
     </p>
     <canvas width=600 height=785 id="canvas" ></canvas>
-    <Script>blinkyStraight('#1244b3','#ffd505','#b82c09')</script>
 	<div id="buttons"><b>Colour Options</b><br>	
 	<input type="color" id="color1" value="#1244b3">
 	<input type="color" id="color2" value="#ffd505">
 	<input type="color" id="color3"  value="#b82c09">
-	<br>	<br>
+	<br><br>
 	<b>Generation Options</b><br>	
-    <button type="button" onclick="blinkyStraight('#1244b3','#ffd505','#b82c09')">Generate</button>
-    <button type="button" onclick="canvasDownload()">Download</button>
-	<br>	<br>	
-
+    <button onclick="reset_image()">Reset Colours</button>
+    <button onclick="download_image('blinkyStraight')">Download</button>
 	</div> 
     <div>bmd 2020	
   </div>
  
 </main>
-<script src="js/jquery-3.5.1.min.js"></script>
+
 <script src="bootstrap/bootstrap.bundle.min.js"></script></body>
 </html>
