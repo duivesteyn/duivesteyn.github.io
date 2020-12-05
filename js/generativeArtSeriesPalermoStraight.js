@@ -2,7 +2,7 @@ function myFunction() {
   document.getElementById("demo").innerHTML = "Paragraph changed.";
 }
 
-function download_image(imagename){
+function download_image_Straight(imagename){
   var canvas = document.getElementById("canvas");
   image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
   var link = document.createElement('a');
@@ -12,7 +12,7 @@ function download_image(imagename){
   link.click();
 }
 
-function reset_image(){
+function reset_image_Straight(){
     console.log('reverting to original colours');
     document.getElementById("color1").value = "#1244b3";
     document.getElementById("color2").value = "#ffd505";

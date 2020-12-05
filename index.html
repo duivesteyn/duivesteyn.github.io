@@ -24,7 +24,7 @@ $(document).click(function (event) {
  </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">GenerativeArtSeries</a>
+  <a class="navbar-brand" href="#">GenerativeArtSeries by bmd</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -59,14 +59,14 @@ $(document).click(function (event) {
 
 <main role="main" class="container">
   <div class="starter-template">
-  <h2>Generative Art Series</h2>
+  <h1 class="display-1">Generative Art Series</h1>
   <p class="lead">The <a href="https://github.com/deIndustries/GenerativeArtSeries">Generative Art Series</a> is a collection of existing artworks which have been recreated purely from code. The study has been focused on artworks by Blinky Palermo, Ellsworth Kelly and Max Bill.
   </div>
         
   <div class="starter-template">
-    <h1>Blinky Palermo - Straight (1965)</h1>
+    <h2 id="straight">Blinky Palermo - Straight (1965)</h2>
     <a target="_blank" href="https://www.pinakothek.de/kunst/blinky-palermo/straight">The Original</a> in Munich Pinakothek.<br>
-    <a href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/BlinkyPalermo-Straight">Python Implementation</a>
+    <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/BlinkyPalermo-Straight">Python Implementation</a>
     </p>
     <canvas width=600 height=785 id="canvas" ></canvas>
 	<div id="buttons"><b>Colour Options</b><br>	
@@ -75,9 +75,190 @@ $(document).click(function (event) {
 	<input type="color" id="color3"  value="#b82c09">
 	<br><br>
 	<b>Generation Options</b><br>	
-    <button onclick="reset_image()">Reset Colours</button>
-    <button onclick="download_image('blinkyStraight')">Download</button>
+    <button onclick="reset_image_Straight()">Reset Colours</button>
+    <button onclick="download_image_Straight('blinkyStraight')">Download</button>
+	</div>
+	<hr/>
+	
+  <div class="starter-template">
+    <h2 id="blinkyConey">Blinky Palermo - Coney Island II </h2>
+    <a target="_blank" href="https://hirshhorn.si.edu/explore/blinky-palermo-coney-island-ii/#:~:text=Blinky%20Palermo%2C%20Coney%20Island%20II,Photo%3A%20Jens%20Ziehe">Collection Ströher, Darmstadt / Modern Museum of Art</a> , Frankfurt DE.<br>
+    <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/BlinkyPalermo-4Forms">Python Implementation</a>
+    </p>
+	<div class="alert alert-warning" role="alert">	  TODO	</div>
+    <canvas width=600 height=785 id="canvasConey" ></canvas>
+	<div id="buttons"><b>Colour Options</b><br>	
+	<input type="color" id="colorConey1" value="#1244b3">
+	<input type="color" id="colorConey2" value="#ffd505">
+	<input type="color" id="colorConey3"  value="#b82c09">
+	<br><br>
+	<b>Generation Options</b><br>	
+    <button onclick="reset_image_Coney()">Reset Colours</button>
+    <button onclick="download_image_Coney('blinkyConey')">Download</button>
 	</div> 
+	<hr/>
+
+  <div class="starter-template">
+    <h2 id="blinkyFlipper">Blinky Palermo - Flipper </h2>
+    <a target="_blank" href="https://www.moma.org/collection/works/62216">The Original</a> in the MoMA, NYC.<br>
+    <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/BlinkyPalermo-Flipper">Python Implementation</a>
+    </p>
+	<div class="alert alert-warning" role="alert">	  TODO	</div>
+    <canvas width=600 height=785 id="canvasConey" ></canvas>
+	<div id="buttons"><b>Colour Options</b><br>	
+	<input type="color" id="colorFlipper1" value="#1244b3">
+	<input type="color" id="colorFlipper2" value="#ffd505">
+	<input type="color" id="colorFlipper3"  value="#b82c09">
+	<br><br>
+	<b>Generation Options</b><br>	
+    <button onclick="reset_image_Flipper()">Reset Colours</button>
+    <button onclick="download_image_Flipper('blinkyFlipper')">Download</button>
+	</div> 
+	<hr/>
+	
+	<!-- Triptychon -->	
+    <div class="starter-template">
+      <h2 id="blinkyTriptychon">Blinky Palermo - Triptychon</h2>
+      <a target="_blank" href="#">The Original</a>in der Pinakothek der Moderne, Munich.<br>
+      <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/BlinkyPalermo-Triptychon">Python Implementation</a>
+      </p>
+	<div class="alert alert-warning" role="alert">	  TODO	</div>
+      <canvas width=600 height=785 id="canvasTriptychon" ></canvas>
+  	<div id="buttons"><b>Colour Options</b><br>	
+  	<input type="color" id="colorTriptychon1" value="#1244b3">
+  	<input type="color" id="colorTriptychon2" value="#ffd505">
+  	<input type="color" id="colorTriptychon3"  value="#b82c09">
+  	<br><br>
+  	<b>Generation Options</b><br>	
+      <button onclick="reset_image_Triptychon()">Reset Colours</button>
+      <button onclick="download_image_Triptychon('blinkyTriptychon')">Download</button>
+  	</div> 
+  	<hr/>
+	
+	<!-- Ellsworth Kelly -->
+    <div class="starter-template">
+      <h2 id="ellsworthKellyColours">Ellsworth Kelly - Colours For A Large Wall</h2>
+      <a target="_blank" href="https://www.moma.org/collection/works/80528">The Original</a>MoMA, NYC.<br>
+      <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/EllsworthKelly-ColoursForALargeWall">Python Implementation</a>
+      </p>
+	<div class="alert alert-warning" role="alert">	  TODO	</div>
+      <canvas width=600 height=785 id="canvasEllsworthKellyColours" ></canvas>
+  	<br><br>
+  	<b>Generation Options</b><br>	
+      <button onclick="download_image_EllsworthKellyColours('EllsworthKellyColours')">Download</button>
+  	</div> 
+  	<hr/>
+
+    <div class="starter-template">
+      <h2 id="ellsworthKellyColours">Ellsworth Kelly - Gaza</h2>
+      <a target="_blank" href="https://www.sfmoma.org/artwork/99.345/">The Original</a> in the MoMA, San Francisco.<br>
+      <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/EllsworthKelly-Gaza">Python Implementation</a>
+      </p>
+	<div class="alert alert-warning" role="alert">	  TODO	</div>
+      <canvas width=600 height=785 id="canvasTriptychon" ></canvas>
+  	<div id="buttons"><b>Colour Options</b><br>	
+  	<input type="color" id="colorEllsworth1" value="#1244b3">
+  	<input type="color" id="colorEllsworth2" value="#ffd505">
+  	<input type="color" id="colorEllsworth3"  value="#b82c09">
+  	<br><br>
+  	<b>Generation Options</b><br>	
+      <button onclick="reset_image_ellsworthKellyColours()">Reset Colours</button>
+      <button onclick="download_image('ellsworthKellyColours')">Download</button>
+  	</div> 
+  	<hr/>
+	
+    <div class="starter-template">
+      <h2 id="ellsworthKellySpectrum">Ellsworth Kelly - Spectrum</h2>
+      <a target="_blank" href="https://www.sfmoma.org/artwork/99.353/">The Original</a> in the MoMA, San Francisco.<br>
+      <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/EllsworthKelly-SpectrumI">Python Implementation</a>
+      </p>
+	<div class="alert alert-warning" role="alert">	  TODO	</div>
+      <canvas width=600 height=785 id="canvasellsworthKellySpectrum" ></canvas>
+  	<div id="buttons"><b>Colour Options</b><br>	
+  	<input type="color" id="colorEllsworth4" value="#1244b3">
+  	<input type="color" id="colorEllsworth5" value="#ffd505">
+  	<input type="color" id="colorEllsworth6"  value="#b82c09">
+  	<br><br>
+  	<b>Generation Options</b><br>	
+      <button onclick="reset_image_ellsworthKellySpectrum()">Reset Colours</button>
+      <button onclick="download_image('canvasellsworthKellySpectrum')">Download</button>
+  	</div> 
+  	<hr/>
+
+    <div class="starter-template">
+      <h2 id="ellsworthKellyChatham">Ellsworth Kelly - Chatham Series</h2>
+      <a target="_blank" href="https://www.moma.org/calendar/exhibitions/1329">The Original</a>MoMA, NYC.<br>
+      <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/deIndustries-GenerativeArtSeries-EllsworthKelly-ChathamSeries">Python Implementation</a>
+      </p>
+	<div class="alert alert-warning" role="alert">	  TODO	</div>
+      <canvas width=600 height=785 id="canvasellsworthKellyChatham" ></canvas>
+  	<div id="buttons"><b>Colour Options</b><br>	
+  	  Version 1,2,3,4,5,6,7,8.
+      <input type="color" id="colorEllsworthC1" value="#1244b3">
+      <input type="color" id="colorEllsworthC2" value="#ffd505">
+  	<br><br>
+  	<b>Generation Options</b><br>	
+      <button onclick="reset_image_ellsworthKellyChatham()">Reset Colours</button>
+      <button onclick="download_image('ellsworthKellyChatham')">Download</button>
+  	</div> 
+  	<hr/>
+	
+    <!-- Max Bill -->
+    <div class="starter-template">
+      <h2 id="MaxBillMunich72">Max Bill - Munich72</h2>
+      <a target="_blank" href="https://www.1stdibs.com/furniture/wall-decorations/posters/max-bill-olympics-munich-1972-serigraph/id-f_11055893/">No good original source</a>, Print Only.<br>
+      <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/MaxBill-Munich72">Python Implementation</a>
+      </p>
+	<div class="alert alert-warning" role="alert">	  TODO	</div>
+      <canvas width=600 height=785 id="canvasMaxBillMunich72" ></canvas>
+  	<div id="buttons"><b>Colour Options</b><br>	
+  	<input type="color" id="colorMaxBillMunich721" value="#1244b3">
+  	<input type="color" id="colorMaxBillMunich722" value="#ffd505">
+  	<input type="color" id="colorMaxBillMunich723"  value="#b82c09">
+  	<br><br>
+  	<b>Generation Options</b><br>	
+      <button onclick="reset_image_MaxBillMunich72()">Reset Colours</button>
+      <button onclick="download_image('canvasMaxBillMunich72')">Download</button>
+  	</div> 
+  	<hr/>
+	
+    <div class="starter-template">
+      <h2 id="MaxBillSenseTitol">Max Bill - Sense Titol</h2>
+      <a target="_blank" href="http://www.artnet.com/artists/max-bill/sense-t%C3%ADtol-a-8InGDUsrLIluZAfYWI-6w2">The Original</a> in Galeria Eude, Barcelona.<br>
+      <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/MaxBill-SenseTitol">Python Implementation</a>
+      </p>
+	<div class="alert alert-warning" role="alert">	  TODO	</div>
+      <canvas width=600 height=785 id="canvasMaxBillSenseTitol" ></canvas>
+  	<div id="buttons"><b>Colour Options</b><br>	
+  	<input type="color" id="colorMaxBillSenseTitol1" value="#1244b3">
+  	<input type="color" id="colorMaxBillSenseTitol2" value="#ffd505">
+  	<input type="color" id="colorMaxBillSenseTitol3"  value="#b82c09">
+  	<br><br>
+  	<b>Generation Options</b><br>	
+      <button onclick="reset_image_MaxBillSenseTitol()">Reset Colours</button>
+      <button onclick="download_image('canvasMaxBillSenseTitol')">Download</button>
+  	</div> 
+  	<hr/>
+	
+    <div class="starter-template">
+      <h2 id="MaxBill9x5KonkretPortfolio">Max Bill - 9x5KonkretPortfolio (1973)</h2>
+      <a target="_blank" href="https://www.artsy.net/artwork/max-bill-untitled-from-9x5-konkret-portfolio">The Original</a>, private collection.<br>
+      <a target="_blank" href="https://github.com/deIndustries/GenerativeArtSeries/tree/master/MaxBill-Untitled-9x5KonkretPortfolio">Python Implementation</a>
+      </p>
+	<div class="alert alert-warning" role="alert">	  TODO	</div>
+      <canvas width=600 height=785 id="canvasMaxBill9x5KonkretPortfolio" ></canvas>
+  	<div id="buttons"><b>Colour Options</b><br>	
+  	<input type="color" id="colorMaxBill9x5KonkretPortfolio1" value="#1244b3">
+  	<input type="color" id="colorMaxBill9x5KonkretPortfolio2" value="#ffd505">
+  	<input type="color" id="colorMaxBill9x5KonkretPortfoliol3"  value="#b82c09">
+  	<br><br>
+  	<b>Generation Options</b><br>	
+      <button onclick="reset_image_MaxBill9x5KonkretPortfolio()">Reset Colours</button>
+      <button onclick="download_image('canvasMaxBill9x5KonkretPortfolio')">Download</button>
+  	</div> 
+  	<hr/>
+	
+	           
     <div>bmd 2020	
   </div>
  
